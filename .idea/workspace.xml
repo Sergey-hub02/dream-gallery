@@ -7,6 +7,8 @@
     <list default="true" id="37df0c2b-e808-46d9-b646-def632701436" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/v1/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/routes/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/routes/userRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,19 +52,19 @@
   }
 }</component>
   <component name="RunManager" selected="npm.start back">
-    <configuration name="rest-api_2 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="rest-api_2 | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="rest-api_2 | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_2 | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" index="4" requestIdentifier="#4" runType="Run single request">
+    <configuration name="rest-api_3 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_3.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_2 | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" index="5" requestIdentifier="#5" runType="Run single request">
+    <configuration name="rest-api_3 | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_3.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest-api_3 | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_3.http" index="4" requestIdentifier="#4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest-api_3 | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_3.http" index="5" requestIdentifier="#5" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="start back" type="js.build_tools.npm" nameIsGenerated="true">
@@ -77,19 +79,19 @@
     </configuration>
     <list>
       <item itemvalue="HTTP Request.rest-api_2 | #3" />
-      <item itemvalue="HTTP Request.rest-api_2 | #4" />
-      <item itemvalue="HTTP Request.rest-api_2 | #5" />
-      <item itemvalue="HTTP Request.rest-api_2 | #1" />
-      <item itemvalue="HTTP Request.rest-api_2 | #2" />
+      <item itemvalue="HTTP Request.rest-api_3 | #1" />
+      <item itemvalue="HTTP Request.rest-api_3 | #3" />
+      <item itemvalue="HTTP Request.rest-api_3 | #4" />
+      <item itemvalue="HTTP Request.rest-api_3 | #5" />
       <item itemvalue="npm.start back" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.rest-api_2 | #5" />
-        <item itemvalue="HTTP Request.rest-api_2 | #4" />
+        <item itemvalue="HTTP Request.rest-api_3 | #1" />
+        <item itemvalue="HTTP Request.rest-api_3 | #5" />
+        <item itemvalue="HTTP Request.rest-api_3 | #4" />
+        <item itemvalue="HTTP Request.rest-api_3 | #3" />
         <item itemvalue="HTTP Request.rest-api_2 | #3" />
-        <item itemvalue="HTTP Request.rest-api_2 | #2" />
-        <item itemvalue="HTTP Request.rest-api_2 | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -105,11 +107,22 @@
       <workItem from="1682233284347" duration="14000" />
       <workItem from="1682237587092" duration="191000" />
       <workItem from="1682237810773" duration="8956000" />
-      <workItem from="1682247932108" duration="2818000" />
+      <workItem from="1682247932108" duration="9452000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

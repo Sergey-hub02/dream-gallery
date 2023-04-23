@@ -19,7 +19,7 @@ const Role = new Schema({
  * @field {String} username             имя пользователя в системе
  * @field {String} email                адрес электронной почты
  * @field {String} password             пароль (хранится в зашифрованном виде)
- * @field {Number} roleId               идентификатор роли пользователя
+ * @field {String} roleId               идентификатор роли пользователя
  * @field {Date} createdAt              дата регистрации
  * @field {Date} updatedAt              дата внесения последних изменений
  */
@@ -29,7 +29,7 @@ const User = new Schema({
   username: String,
   email: String,
   password: String,
-  roleId: Number,
+  roleId: String,
   createdAt: Date,
   updatedAt: Date,
 });
@@ -38,6 +38,7 @@ const User = new Schema({
  * Фотография
  * @field {String} title              название фотографии
  * @field {String} description        описание фотографии
+ * @field {String} categoryId         идентификатор категории
  * @field {String} filename           название файла с расширением
  * @field {String} path               путь к фотографии
  * @field {Boolean} published         факт публикации фотографии
@@ -47,6 +48,7 @@ const User = new Schema({
 const Photo = new Schema({
   title: String,
   description: String,
+  categoryId: String,
   filename: String,
   path: String,
   published: Boolean,

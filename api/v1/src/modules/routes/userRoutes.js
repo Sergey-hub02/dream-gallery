@@ -45,8 +45,8 @@ userRouter.post("/", async (request, response) => {
     errors.push("Поле \"Пароль\" обязательное!");
   }
 
-  if (!roleId) {
-    roleId = 1;   // идентификатор роли "Зарегистрированный пользователь"
+  if (!roleId || roleId.length === 0) {
+    roleId = "6445235e184dc8f19a52ba3b";   // идентификатор роли "Зарегистрированный пользователь"
   }
 
   // проверка на уникальность имени пользователя в системе
@@ -100,7 +100,7 @@ userRouter.post("/", async (request, response) => {
  * Возвращает список пользователей
  */
 userRouter.get("/", (_, response) => {
-  console.log(`GET /users/`);
+  console.log(`GET /api/v1/users/`);
 
   UserModel
       .find({}, "_id firstname lastname username email roleId createdAt updatedAt")
@@ -122,7 +122,7 @@ userRouter.get("/", (_, response) => {
  */
 userRouter.get("/:id", (request, response) => {
   const userId = request.params.id;
-  console.log(`GET /users/${userId}`);
+  console.log(`GET /api/v1/users/${userId}`);
 
   UserModel
       .findById(userId)
