@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
+import userRouter from "./modules/routes/userRoutes.js";
 
 const PORT = 4000;
 
@@ -16,6 +17,8 @@ const main = async () => {
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
+
+  app.use("/api/v1/users/", userRouter);
 
   app.listen(PORT, () => {
     console.log(`Сервер запущен на http://localhost:${PORT}/`);
