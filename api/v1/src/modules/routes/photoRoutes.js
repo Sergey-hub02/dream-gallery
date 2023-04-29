@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {PhotoModel} from "../models.js";
+import {PhotoModel, UserModel} from "../models.js";
 
 
 const UPLOAD_DIR = "C:\\Users\\Park Sergey\\Documents\\mirea\\Projects\\dream-gallery\\upload";
@@ -12,11 +12,11 @@ const photoRouter = Router();
 photoRouter.post("/", async (request, response) => {
   console.log(`POST /api/v1/photos/`);
   console.log(request.body);
-  console.log(UPLOAD_DIR);
 
   let {
     title,
     description,
+    creatorId,
     categoryId,
     filename
   } = request.body;
@@ -30,6 +30,10 @@ photoRouter.post("/", async (request, response) => {
 
   if (!description) {
     description = "";
+  }
+
+  if (!creatorId || creatorId.length === 0) {
+    errors.push("Не указан автор фотографии!");
   }
 
   if (!categoryId || categoryId.length === 0) {
@@ -54,6 +58,7 @@ photoRouter.post("/", async (request, response) => {
   const photo = new PhotoModel({
     title: title,
     description: description,
+    creatorId: creatorId,
     categoryId: categoryId,
     filename: filename,
     path: `${UPLOAD_DIR}\\${filename}`,
@@ -103,7 +108,7 @@ photoRouter.get("/", (_, response) => {
  */
 photoRouter.get("/:id", (request, response) => {
   const photoId = request.params.id;
-  console.log(`GET /api/v1/users/${photoId}`);
+  console.log(`GET /api/v1/photos/${photoId}`);
 
   PhotoModel
       .findById(photoId)
@@ -146,7 +151,7 @@ photoRouter.put("/:id", async (request, response) => {
     return;
   }
 
-  console.log(`PUT /api/v1/users/${photoId}`);
+  console.log(`PUT /api/v1/photos/${photoId}`);
   console.log(request.body);
 
   request.body.updatedAt = new Date();
@@ -182,7 +187,7 @@ photoRouter.delete("/:id", (request, response) => {
     return;
   }
 
-  console.log(`DELETE /api/v1/users/${photoId}`);
+  console.log(`DELETE /api/v1/photos/${photoId}`);
 
   PhotoModel
       .deleteOne({_id: photoId})

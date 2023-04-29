@@ -38,6 +38,7 @@ const User = new Schema({
  * Фотография
  * @field {String} title              название фотографии
  * @field {String} description        описание фотографии
+ * @field {String} creatorId          идентификатор автора
  * @field {String} categoryId         идентификатор категории
  * @field {String} filename           название файла с расширением
  * @field {String} path               путь к фотографии
@@ -48,6 +49,7 @@ const User = new Schema({
 const Photo = new Schema({
   title: String,
   description: String,
+  creatorId: String,
   categoryId: String,
   filename: String,
   path: String,

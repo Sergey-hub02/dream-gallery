@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37df0c2b-e808-46d9-b646-def632701436" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/v1/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/routes/photoRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/routes/photoRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +24,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HttpClientSelectedEnvironments">
+    <file url="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/post-requests.http" environment="test" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,19 +55,19 @@
   }
 }</component>
   <component name="RunManager" selected="npm.start back">
-    <configuration name="rest-api_3 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_3.http" requestIdentifier="#1" runType="Run single request">
+    <configuration name="rest-api_5 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_4 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_4.http" requestIdentifier="#1" runType="Run single request">
+    <configuration name="rest-api_5 | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_4 | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_4.http" index="2" requestIdentifier="#2" runType="Run single request">
+    <configuration name="rest-api_5 | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_4 | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_4.http" index="3" requestIdentifier="#3" runType="Run single request">
+    <configuration name="rest-api_5 | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" index="4" requestIdentifier="#4" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_4 | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_4.http" index="4" requestIdentifier="#4" runType="Run single request">
+    <configuration name="rest-api_5 | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" index="5" requestIdentifier="#5" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="start back" type="js.build_tools.npm" nameIsGenerated="true">
@@ -77,20 +81,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.rest-api_3 | #1" />
-      <item itemvalue="HTTP Request.rest-api_4 | #1" />
-      <item itemvalue="HTTP Request.rest-api_4 | #2" />
-      <item itemvalue="HTTP Request.rest-api_4 | #3" />
-      <item itemvalue="HTTP Request.rest-api_4 | #4" />
+      <item itemvalue="HTTP Request.rest-api_5 | #1" />
+      <item itemvalue="HTTP Request.rest-api_5 | #2" />
+      <item itemvalue="HTTP Request.rest-api_5 | #3" />
+      <item itemvalue="HTTP Request.rest-api_5 | #4" />
+      <item itemvalue="HTTP Request.rest-api_5 | #5" />
       <item itemvalue="npm.start back" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.rest-api_4 | #4" />
-        <item itemvalue="HTTP Request.rest-api_4 | #3" />
-        <item itemvalue="HTTP Request.rest-api_4 | #1" />
-        <item itemvalue="HTTP Request.rest-api_4 | #2" />
-        <item itemvalue="HTTP Request.rest-api_3 | #1" />
+        <item itemvalue="HTTP Request.rest-api_5 | #5" />
+        <item itemvalue="HTTP Request.rest-api_5 | #4" />
+        <item itemvalue="HTTP Request.rest-api_5 | #3" />
+        <item itemvalue="HTTP Request.rest-api_5 | #2" />
+        <item itemvalue="HTTP Request.rest-api_5 | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -106,7 +110,8 @@
       <workItem from="1682233284347" duration="14000" />
       <workItem from="1682237587092" duration="191000" />
       <workItem from="1682237810773" duration="8956000" />
-      <workItem from="1682247932108" duration="15006000" />
+      <workItem from="1682247932108" duration="15280000" />
+      <workItem from="1682776322295" duration="2868000" />
     </task>
     <servers />
   </component>
