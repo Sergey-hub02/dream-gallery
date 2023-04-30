@@ -69,11 +69,26 @@ commentRouter.post("/", async (request, response) => {
  * GET /api/v1/comments/
  * Возвращает список комментариев
  */
-commentRouter.get("/", (_, response) => {
+commentRouter.get("/", (request, response) => {
   console.log(`GET /api/v1/comments/`);
+
+  let filter = {};
+
+  // получение комментариев от указанного пользователя
+  if (request.query.creatorId) {
+    filter.creatorId = mongoose.Types.ObjectId.createFromHexString(request.query.creatorId);
+  }
+
+  // получение комментариев к указанной фотографии
+  if (request.query.photoId) {
+    filter.photoId = mongoose.Types.ObjectId.createFromHexString(request.query.photoId);
+  }
 
   CommentModel
       .aggregate([
+        {
+          $match: filter
+        },
         {
           $lookup: {
             from: "users",

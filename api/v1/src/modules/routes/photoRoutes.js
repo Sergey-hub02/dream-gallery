@@ -86,11 +86,26 @@ photoRouter.post("/", async (request, response) => {
  * GET /api/v1/photos/
  * Возвращает список фотографий
  */
-photoRouter.get("/", (_, response) => {
+photoRouter.get("/", (request, response) => {
   console.log(`GET /api/v1/photos/`);
+
+  let filter = {};
+
+  // получение фотографий, добавленных указанным пользователем
+  if (request.query.creatorId) {
+    filter.creatorId = mongoose.Types.ObjectId.createFromHexString(request.query.creatorId);
+  }
+
+  // получение фотографий из указанной категории
+  if (request.query.categoryId) {
+    filter.categoryId = mongoose.Types.ObjectId.createFromHexString(request.query.categoryId);
+  }
 
   PhotoModel
       .aggregate([
+        {
+          $match: filter,
+        },
         {
           $lookup: {
             from: "users",
