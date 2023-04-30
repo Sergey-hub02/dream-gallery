@@ -1,4 +1,4 @@
-import {model} from "mongoose";
+import mongoose, {model} from "mongoose";
 import {Schema} from "mongoose";
 
 
@@ -19,7 +19,7 @@ const Role = new Schema({
  * @field {String} username             имя пользователя в системе
  * @field {String} email                адрес электронной почты
  * @field {String} password             пароль (хранится в зашифрованном виде)
- * @field {String} roleId               идентификатор роли пользователя
+ * @field {ObjectId} roleId             идентификатор роли пользователя
  * @field {Date} createdAt              дата регистрации
  * @field {Date} updatedAt              дата внесения последних изменений
  */
@@ -29,7 +29,7 @@ const User = new Schema({
   username: String,
   email: String,
   password: String,
-  roleId: String,
+  roleId: mongoose.Types.ObjectId,
   createdAt: Date,
   updatedAt: Date,
 });
@@ -38,8 +38,8 @@ const User = new Schema({
  * Фотография
  * @field {String} title              название фотографии
  * @field {String} description        описание фотографии
- * @field {String} creatorId          идентификатор автора
- * @field {String} categoryId         идентификатор категории
+ * @field {ObjectId} creatorId        идентификатор автора
+ * @field {ObjectId} categoryId       идентификатор категории
  * @field {String} filename           название файла с расширением
  * @field {String} path               путь к фотографии
  * @field {Boolean} published         факт публикации фотографии
@@ -49,8 +49,8 @@ const User = new Schema({
 const Photo = new Schema({
   title: String,
   description: String,
-  creatorId: String,
-  categoryId: String,
+  creatorId: mongoose.Types.ObjectId,
+  categoryId: mongoose.Types.ObjectId,
   filename: String,
   path: String,
   published: Boolean,
@@ -68,14 +68,14 @@ const Category = new Schema({
 
 /**
  * Комментарий к фотографии
- * @field {String} creator              идентификатор автора комментария
- * @field {String} photo                идентификатор фотографии
- * @field {String} content              содержание комментария
- * @field {Date} createdAt              дата и время создания комментария
+ * @field {ObjectId} creatorId              идентификатор автора комментария
+ * @field {ObjectId} photoId                идентификатор фотографии
+ * @field {String} content                  содержание комментария
+ * @field {Date} createdAt                  дата и время создания комментария
  */
 const Comment = new Schema({
-  creator: String,
-  photo: String,
+  creatorId: mongoose.Types.ObjectId,
+  photoId: mongoose.Types.ObjectId,
   content: String,
   createdAt: Date,
 });

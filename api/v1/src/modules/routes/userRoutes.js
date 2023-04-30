@@ -1,7 +1,7 @@
 import {Router} from "express";
 import {UserModel} from "../models.js";
+import mongoose from "mongoose";
 import argon2 from "argon2";
-
 
 const userRouter = Router();
 
@@ -76,7 +76,7 @@ userRouter.post("/", async (request, response) => {
     username: username,
     email: email,
     password: hashedPwd,
-    roleId: roleId,
+    roleId: mongoose.Types.ObjectId.createFromHexString(roleId),
     createdAt: new Date(),
     updatedAt: new Date(),
   });
@@ -103,7 +103,22 @@ userRouter.get("/", (_, response) => {
   console.log(`GET /api/v1/users/`);
 
   UserModel
-      .find({}, "_id firstname lastname username email roleId createdAt updatedAt")
+      .aggregate([
+        {
+          $project: {
+            password: false,
+            __v: false,
+          }
+        },
+        {
+          $lookup: {
+            from: "roles",
+            localField: "roleId",
+            foreignField: "_id",
+            as: "role",
+          },
+        }
+      ])
       .catch(error => {
         response.status(500);
         response.json({
@@ -125,7 +140,19 @@ userRouter.get("/:id", (request, response) => {
   console.log(`GET /api/v1/users/${userId}`);
 
   UserModel
-      .findById(userId)
+      .aggregate([
+        {
+          $match: { _id: mongoose.Types.ObjectId.createFromHexString(userId) },
+        },
+        {
+          $lookup: {
+            from: "roles",
+            localField: "roleId",
+            foreignField: "_id",
+            as: "role",
+          },
+        }
+      ])
       .catch(error => {
         response.status(500);
         response.json({
@@ -133,18 +160,18 @@ userRouter.get("/:id", (request, response) => {
         });
       })
       .then(result => {
-        if (!result) {
+        if (result.length === 0) {
           response.status(404);
 
           response.json({
-            error: `Не удалось найти пользователя с id = ${userId}`,
+            error: `Пользователь с id = ${userId} не найден!`,
           });
 
           return;
         }
 
         response.status(200);
-        response.json(result);
+        response.json(result[0]);
       });
 });
 

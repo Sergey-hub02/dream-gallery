@@ -1,5 +1,6 @@
 import {Router} from "express";
 import {CommentModel} from "../models.js";
+import mongoose from "mongoose";
 
 const commentRouter = Router();
 
@@ -12,19 +13,19 @@ commentRouter.post("/", async (request, response) => {
   console.log(request.body);
 
   let {
-    creator,
-    photo,
+    creatorId,
+    photoId,
     content
   } = request.body;
 
   /*========= ВАЛИДАЦИЯ ДАННЫХ ==========*/
   let errors = [];
 
-  if (!creator || creator.length === 0) {
+  if (!creatorId || creatorId.length === 0) {
     errors.push("Не указан автор комментария!");
   }
 
-  if (!photo || photo.length === 0) {
+  if (!photoId || photoId.length === 0) {
     errors.push("Не указана комментируемая фотография!");
   }
 
@@ -44,8 +45,8 @@ commentRouter.post("/", async (request, response) => {
 
   /*========== ДОБАВЛЕНИЕ КОММЕНТАРИЯ В БАЗУ ДАННЫХ ==========*/
   const comment = new CommentModel({
-    creator: creator,
-    photo: photo,
+    creatorId: mongoose.Types.ObjectId.createFromHexString(creatorId),
+    photoId: mongoose.Types.ObjectId.createFromHexString(photoId),
     content: content,
     createdAt: new Date(),
   });
@@ -72,7 +73,35 @@ commentRouter.get("/", (_, response) => {
   console.log(`GET /api/v1/comments/`);
 
   CommentModel
-      .find({})
+      .aggregate([
+        {
+          $lookup: {
+            from: "users",
+            localField: "creatorId",
+            foreignField: "_id",
+            as: "creator",
+          }
+        },
+        {
+          $lookup: {
+            from: "photos",
+            localField: "photoId",
+            foreignField: "_id",
+            as: "photo",
+          }
+        },
+        {
+          $project: {
+            "content": true,
+            "createdAt": true,
+            "creator._id": true,
+            "creator.username": true,
+            "creator.email": true,
+            "photo._id": true,
+            "photo.title": true,
+          }
+        }
+      ])
       .catch(error => {
         response.status(500);
         response.json({
@@ -94,7 +123,39 @@ commentRouter.get("/:id", (request, response) => {
   console.log(`GET /api/v1/comments/${commentId}`);
 
   CommentModel
-      .findById(commentId)
+      .aggregate([
+        {
+          $match: {_id: mongoose.Types.ObjectId.createFromHexString(commentId)}
+        },
+        {
+          $lookup: {
+            from: "users",
+            localField: "creatorId",
+            foreignField: "_id",
+            as: "creator",
+          }
+        },
+        {
+          $lookup: {
+            from: "photos",
+            localField: "photoId",
+            foreignField: "_id",
+            as: "photo",
+          }
+        },
+        {
+          $project: {
+            "_id": true,
+            "content": true,
+            "createdAt": true,
+            "creator._id": true,
+            "creator.username": true,
+            "creator.email": true,
+            "photo._id": true,
+            "photo.title": true,
+          }
+        }
+      ])
       .catch(error => {
         response.status(500);
         response.json({
@@ -102,18 +163,18 @@ commentRouter.get("/:id", (request, response) => {
         });
       })
       .then(result => {
-        if (!result) {
+        if (result.length === 0) {
           response.status(404);
 
           response.json({
-            error: `Не удалось найти комментарий с id = ${commentId}`,
+            error: `Комментарий с id = ${commentId} не найден!`,
           });
 
           return;
         }
 
         response.status(200);
-        response.json(result);
+        response.json(result[0]);
       });
 });
 

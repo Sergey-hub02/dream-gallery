@@ -1,5 +1,6 @@
 import {Router} from "express";
-import {PhotoModel, UserModel} from "../models.js";
+import {PhotoModel} from "../models.js";
+import mongoose from "mongoose";
 
 
 const UPLOAD_DIR = "C:\\Users\\Park Sergey\\Documents\\mirea\\Projects\\dream-gallery\\upload";
@@ -58,8 +59,8 @@ photoRouter.post("/", async (request, response) => {
   const photo = new PhotoModel({
     title: title,
     description: description,
-    creatorId: creatorId,
-    categoryId: categoryId,
+    creatorId: mongoose.Types.ObjectId.createFromHexString(creatorId),
+    categoryId: mongoose.Types.ObjectId.createFromHexString(categoryId),
     filename: filename,
     path: `${UPLOAD_DIR}\\${filename}`,
     published: false,
@@ -89,7 +90,41 @@ photoRouter.get("/", (_, response) => {
   console.log(`GET /api/v1/photos/`);
 
   PhotoModel
-      .find({})
+      .aggregate([
+        {
+          $lookup: {
+            from: "users",
+            localField: "creatorId",
+            foreignField: "_id",
+            as: "creator",
+          }
+        },
+        {
+          $lookup: {
+            from: "categories",
+            localField: "categoryId",
+            foreignField: "_id",
+            as: "category"
+          }
+        },
+        {
+          $project: {
+            "_id": true,
+            "title": true,
+            "description": true,
+            "filename": true,
+            "path": true,
+            "published": true,
+            "createdAt": true,
+            "updatedAt": true,
+            "creator._id": true,
+            "creator.username": true,
+            "creator.email": true,
+            "category._id": true,
+            "category.title": true,
+          }
+        }
+      ])
       .catch(error => {
         response.status(500);
         response.json({
@@ -111,7 +146,44 @@ photoRouter.get("/:id", (request, response) => {
   console.log(`GET /api/v1/photos/${photoId}`);
 
   PhotoModel
-      .findById(photoId)
+      .aggregate([
+        {
+          $match: {_id: mongoose.Types.ObjectId.createFromHexString(photoId)},
+        },
+        {
+          $lookup: {
+            from: "users",
+            localField: "creatorId",
+            foreignField: "_id",
+            as: "creator",
+          }
+        },
+        {
+          $lookup: {
+            from: "categories",
+            localField: "categoryId",
+            foreignField: "_id",
+            as: "category",
+          }
+        },
+        {
+          $project: {
+            "_id": true,
+            "title": true,
+            "description": true,
+            "filename": true,
+            "path": true,
+            "published": true,
+            "createdAt": true,
+            "updatedAt": true,
+            "creator._id": true,
+            "creator.username": true,
+            "creator.email": true,
+            "category._id": true,
+            "category.title": true,
+          }
+        },
+      ])
       .catch(error => {
         response.status(500);
         response.json({
@@ -119,18 +191,18 @@ photoRouter.get("/:id", (request, response) => {
         });
       })
       .then(result => {
-        if (!result) {
+        if (result.length === 0) {
           response.status(404);
 
           response.json({
-            error: `Не удалось найти фотографию с id = ${photoId}`,
+            error: `Фотография с id = ${photoId} не найдена!`,
           });
 
           return;
         }
 
         response.status(200);
-        response.json(result);
+        response.json(result[0]);
       });
 });
 
