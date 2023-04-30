@@ -258,4 +258,73 @@ userRouter.delete("/:id", (request, response) => {
       });
 });
 
+/**
+ * POST /api/v1/users/login/
+ * Определяет процесс авторизации пользователя
+ */
+userRouter.post("/login", async (request, response) => {
+  console.log(`POST /api/v1/users/login/`);
+
+  let {
+    usernameOrEmail,
+    password,
+  } = request.body;
+
+  /*========= ВАЛИДАЦИЯ ДАННЫХ ==========*/
+  let errors = [];
+
+  if (!usernameOrEmail || usernameOrEmail.length === 0) {
+    errors.push("Поле \"Логин или email\" обязательное!");
+  }
+
+  if (!password || password.length === 0) {
+    errors.push("Поле \"Пароль\" обязательное!");
+  }
+
+  if (errors.length !== 0) {
+    response.status(400);
+
+    response.json({
+      errors: errors,
+    });
+
+    return;
+  }
+
+  /*========== ПРОВЕРКА ДАННЫХ ПОЛЬЗОВАТЕЛЯ =========*/
+  const filter = (usernameOrEmail.includes("@"))
+      ? { email: usernameOrEmail }
+      : { username: usernameOrEmail };
+  const user = (await UserModel.find(filter, "_id username email password"))[0];
+
+  if (!user) {
+    response.status(403);
+
+    response.json({
+      error: "Неверный логин или email!",
+    });
+
+    return;
+  }
+
+  if (!(await argon2.verify(user.password, password))) {
+    response.status(403);
+
+    response.json({
+      error: "Неверный пароль!",
+    });
+
+    return;
+  }
+
+  response.status(200);
+
+  response.cookie("User-ID", user._id.toString());
+  response.cookie("Username", user.username);
+
+  response.json({
+    "message": "Авторизация авторизация прошла успешно!",
+  });
+});
+
 export default userRouter;
