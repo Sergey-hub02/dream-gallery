@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 import mongoose from "mongoose";
 
 import userRouter from "./modules/routes/userRoutes.js";
@@ -18,6 +19,7 @@ const main = async () => {
   await mongoose.connect("mongodb://127.0.0.1:27017/dream-gallery");
   const app = express();
 
+  app.use(cors());
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 

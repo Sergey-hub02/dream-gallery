@@ -8,6 +8,10 @@
   --fg-link-hover: #f9f871;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;

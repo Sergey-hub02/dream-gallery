@@ -301,7 +301,7 @@ userRouter.post("/login", async (request, response) => {
     response.status(403);
 
     response.json({
-      error: "Неверный логин или email!",
+      errors: ["Неверный логин или email!"],
     });
 
     return;
@@ -311,7 +311,7 @@ userRouter.post("/login", async (request, response) => {
     response.status(403);
 
     response.json({
-      error: "Неверный пароль!",
+      errors: ["Неверный пароль!"],
     });
 
     return;
@@ -319,11 +319,9 @@ userRouter.post("/login", async (request, response) => {
 
   response.status(200);
 
-  response.cookie("User-ID", user._id.toString());
-  response.cookie("Username", user.username);
-
   response.json({
-    "message": "Авторизация авторизация прошла успешно!",
+    userId: user._id.toString(),
+    username: user.username,
   });
 });
 
