@@ -77,20 +77,13 @@ export const Register = () => {
                 httpOnly: false,
               }
           );
-          cookies.set(
-              "Username",
-              response.data["username"],
-              {
-                path: "/",
-                httpOnly: false,
-              }
-          );
 
           setFirstname("");
           setLastname("");
           setUsername("");
           setEmail("");
           setPassword("");
+          setErrors([]);
         });
   };
 

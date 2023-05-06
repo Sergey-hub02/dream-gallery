@@ -1,11 +1,19 @@
 :root {
   --bg-primary: #022927;
+  --bg-secondary: #347c56;
+  --bg-tertiary: #0d5142;
   --bg-btn-primary: #69a762;
   --bg-btn-primary-hover: #aad169;
 
   --fg-primary: #eefcfb;
   --fg-link: #aad169;
   --fg-link-hover: #f9f871;
+
+  --box-shadow-color: rgba(105, 167, 98, 0.2);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {

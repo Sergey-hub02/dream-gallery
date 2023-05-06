@@ -1,0 +1,71 @@
+.MyHeader {
+  background-color: var(--bg-primary);
+  box-shadow: 0 1px 8px 0 var(--box-shadow-color);
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.nav-link {
+  font-size: 1.2rem !important;
+}
+
+.profile-link {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  display: none;
+
+  position: absolute;
+  right: 0;
+  top: 110%;
+  z-index: 100;
+
+  background-color: var(--bg-secondary);
+  box-shadow: 0 4px 15px 0 var(--box-shadow-color);
+
+  width: 180px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.profile-dropdown.active {
+  display: block;
+}
+
+.profile-dropdown-link {
+  display: block;
+  padding: 6px 0;
+
+  border-bottom: 1px solid var(--bg-btn-primary);
+  border-radius: 8px;
+
+  color: var(--fg-primary) !important;
+  transition: background-color .2s linear;
+}
+
+.profile-dropdown-link:hover {
+  background-color: var(--bg-btn-primary-hover);
+}
+
+.profile-dropdown-link:last-child {
+  border-bottom: 0;
+}
+
+.navbar-toggler {
+  height: 45px;
+  padding: 0 .23rem;
+
+  border: 0;
+  color: var(--fg-primary);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 .1rem;
+}

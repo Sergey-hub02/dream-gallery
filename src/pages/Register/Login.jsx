@@ -71,17 +71,10 @@ export const Login = () => {
                 httpOnly: false,
               }
           );
-          cookies.set(
-              "Username",
-              response.data["username"],
-              {
-                path: "/",
-                httpOnly: false,
-              }
-          );
 
           setUsernameOrEmail("");
           setPassword("");
+          setErrors([]);
         });
   }
 
@@ -115,7 +108,7 @@ export const Login = () => {
                       })}
                     </div>
                 )
-                : (success)
+                : (success && errors.length === 0)
                     ? (
                         <div className="alert alert-success" role="alert">Авторизация прошла успешно!</div>
                     )

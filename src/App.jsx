@@ -6,6 +6,7 @@ import {Register} from "./pages/Register/Register";
 import {Login} from "./pages/Register/Login";
 
 import "./App.css";
+import {UserProfile} from "./pages/profile/UserProfile";
 
 
 /**
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </div>
   );

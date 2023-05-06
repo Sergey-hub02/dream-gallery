@@ -1,0 +1,29 @@
+.MyFooter {
+  /*background-color: #347c56;*/
+}
+
+.footer-logo-title {
+  font-size: 1.5rem;
+}
+
+.line {
+  border-bottom: 1px solid var(--fg-link-hover);
+}
+
+.round {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid var(--fg-link-hover);
+  border-radius: 50%;
+
+  left: calc(50% - 10px);
+  top: calc(50% - 10px);
+
+  padding: 0 !important;
+}
+
+.copyright {
+  font-size: 1.2rem;
+}
