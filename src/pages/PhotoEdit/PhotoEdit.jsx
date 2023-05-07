@@ -1,36 +1,40 @@
 import React, {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import axios from "axios";
 import {MyHeader} from "../../components/Header/MyHeader";
 import {MyFooter} from "../../components/Footer/MyFooter";
-import {Container, Form, Spinner} from "react-bootstrap";
-
-import "./PhotoUpload.css";
-import "draft-js/dist/Draft.css";
-import axios from "axios";
+import {Container, Form, Image, Spinner} from "react-bootstrap";
 import Cookies from "universal-cookie/lib";
 
 
 /**
- * Страница загрузки фотографий
+ * Страница редактирования данных публикации
  * @returns {JSX.Element}
  * @constructor
  */
-export const PhotoUpload = () => {
+export const PhotoEdit = () => {
+  const params = useParams();
   const [validated, setValidated] = useState(false);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [creatorId, setCreatorId] = useState("");
+  const [categoryId, setCategoryId] = useState("");
   const [, setFilename] = useState(null);
 
-  const [creatorId, setCreatorId] = useState("");
-  const [, setCategoryId] = useState("");
+  const [photoId, setPhotoId] = useState("");
   const [categories, setCategories] = useState([]);
+  const [image, setImage] = useState("");
 
   const [errors, setErrors] = useState([]);
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  /**
+   * Получение данных фотографии
+   */
   useEffect(() => {
-    // определение авторизованного пользователя
+    // получение данных автора
     const cookies = new Cookies();
     const userId = cookies.get("User-ID");
 
@@ -41,18 +45,30 @@ export const PhotoUpload = () => {
 
     setCreatorId(userId);
 
+    // получение данных фотографии
+    const photoId = params.photoId;
+    setPhotoId(photoId);
+
+    axios.get(`http://localhost:4000/api/v1/photos/${photoId}`)
+        .then(response => {
+          setTitle(response.data.title);
+          setDescription(response.data.description);
+          setImage(`/upload/${response.data.filename}`);
+          setCategoryId(response.data.category[0]._id);
+        });
+
     // определение категорий
     axios.get("http://localhost:4000/api/v1/categories/")
         .then(response => {
           setCategories(response.data);
         });
-  }, []);
+  }, [params]);
 
   /**
-   * Отправка данных на сервер для загрузки файла
+   * Отправка данных на сервер для изменения данных
    * @param event
    */
-  const handleUpload = event => {
+  const handleEdit = event => {
     /*========== ВАЛИДАЦИЯ ДАННЫХ ==========*/
     event.preventDefault();
 
@@ -74,7 +90,7 @@ export const PhotoUpload = () => {
 
     const data = new FormData(form);
 
-    axios.post(`http://localhost:4000/api/v1/photos/`, data)
+    axios.put(`http://localhost:4000/api/v1/photos/${photoId}`, data)
         .catch(error => {
           setIsLoading(false);
           setErrors(error.response.data["errors"]);
@@ -93,22 +109,22 @@ export const PhotoUpload = () => {
             setErrors([]);
           }
         });
-  }
+  };
 
   return (
-      <div className="PhotoUpload">
+      <div className="PhotoEdit">
         <MyHeader />
 
-        <div className="upload-section">
+        <main className="main">
           <Container>
             <Form
                 noValidate
                 validated={validated}
-                onSubmit={handleUpload}
+                onSubmit={handleEdit}
                 encType="multipart/form-data"
             >
               <Form.Group className="mb-3 text-md-start text-center">
-                <h3>Загрузка фотографии</h3>
+                <h3>Редактирование фотографии</h3>
               </Form.Group>
 
               {
@@ -124,7 +140,7 @@ export const PhotoUpload = () => {
                     )
                     : (success && errors.length === 0)
                         ? (
-                            <div className="alert alert-success" role="alert">Фотография успешно загружена!</div>
+                            <div className="alert alert-success" role="alert">Данные публикации успешно обновлены!</div>
                         )
                         : <div></div>
               }
@@ -170,14 +186,34 @@ export const PhotoUpload = () => {
                     id="categoryId"
                     name="categoryId"
                     onChange={event => setCategoryId(event.target.value)}
+                    value={categoryId}
                     required
                 >
                   {categories ? (
                       categories.map((category, index) => {
-                        return <option key={index} value={category._id}>{category.title}</option>;
+                        return (
+                            <option
+                                key={index}
+                                value={category._id}
+                            >
+                              {category.title}
+                            </option>
+                        );
                       })
                   ) : (<option></option>)}
                 </select>
+
+                <Form.Control.Feedback type="invalid">Пожалуйста, выберите категорию фотографии!</Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <div className="mb-1">Изображение</div>
+
+                <Image
+                    src={image ? image : ""}
+                    rounded
+                    width={500}
+                />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="filename">
@@ -185,12 +221,9 @@ export const PhotoUpload = () => {
 
                 <Form.Control
                     type="file"
-                    onChange={event => setFilename(event.target.files[0])}
                     name="filename"
-                    required
+                    onChange={event => setFilename(event.target.files[0])}
                 />
-
-                <Form.Control.Feedback type="invalid">Пожалуйста, выберите файл!</Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group className="text-md-start text-center">
@@ -199,7 +232,7 @@ export const PhotoUpload = () => {
                     type="submit"
                     name="upload"
                 >
-                  Загрузить
+                  Сохранить
 
                   {isLoading
                       ? (
@@ -214,10 +247,30 @@ export const PhotoUpload = () => {
                       )
                       : <span></span>}
                 </button>
+                {" "}
+                <button
+                    className="button-danger"
+                    type="button"
+                    name="delete"
+                    onClick={() => {
+                      if (!photoId || photoId.length === 0) {
+                        return;
+                      }
+
+                      axios.delete(`http://localhost:4000/api/v1/photos/${photoId}`)
+                          .then(response => {
+                            if (response) {
+                              window.location = "/profile/";
+                            }
+                          });
+                    }}
+                >
+                  Удалить
+                </button>
               </Form.Group>
             </Form>
           </Container>
-        </div>
+        </main>
 
         <MyFooter />
       </div>

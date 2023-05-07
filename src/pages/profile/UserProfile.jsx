@@ -9,6 +9,7 @@ import {getTime} from "../../utils/functions";
 import "./UserProfile.css";
 import profilePicture from "./user_picture.png";
 import {MyFooter} from "../../components/Footer/MyFooter";
+import {PhotoCard} from "../../components/PhotoCard/PhotoCard";
 
 
 /**
@@ -29,6 +30,8 @@ export const UserProfile = () => {
   const [errors, setErrors] = useState([]);
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [photos, setPhotos] = useState([]);
 
   /**
    * Валидация и отправка данных для обновления
@@ -99,13 +102,18 @@ export const UserProfile = () => {
           setUsername(response.data.username);
           setEmail(response.data.email);
         });
+
+    axios.get(`http://localhost:4000/api/v1/photos/?creatorId=${userId}`)
+        .then(response => {
+          setPhotos(response.data);
+        });
   }, []);
 
   return (
       <div className="UserProfile">
         <MyHeader />
 
-        <section className="user-info">
+        <main className="main">
           <Container>
             <Row>
               <Col xl={3} className="mb-xl-0 mb-3">
@@ -258,8 +266,40 @@ export const UserProfile = () => {
                 </Card>
               </Col>
             </Row>
+
+            <section className="section pt-5">
+              <h4>Мои фотографии (<a className="link" href="/photos/upload/">Добавить</a>)</h4>
+
+              <div className="photos">
+                <Row>
+                  {
+                    photos && photos.length !== 0
+                        ? (
+                            photos.map((photo, index) => {
+                              return (
+                                  <Col key={index} lg={4}>
+                                    <PhotoCard
+                                        src={`/upload/${photo.filename}`}
+                                        id={photo._id}
+                                        title={photo.title}
+                                        category={photo.category[0].title}
+                                        creator={photo.creator[0]}
+                                        createdAt={getTime(photo.createdAt)}
+                                        editable={true}
+                                    />
+                                  </Col>
+                              );
+                            })
+                        )
+                        : (
+                            <div>Вы, пока, не загрузили ни одной фотографии!</div>
+                        )
+                  }
+                </Row>
+              </div>
+            </section>
           </Container>
-        </section>
+        </main>
 
         <MyFooter />
       </div>

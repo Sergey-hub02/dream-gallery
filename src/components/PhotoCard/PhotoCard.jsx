@@ -38,6 +38,10 @@ export const PhotoCard = props => {
 
         <Card.Footer className="text-center py-4">
           <a href={`/photos/${props.id}`} className="button">Подробнее</a>
+          {" "}
+          {props.editable ? (
+              <a href={`/photos/edit/${props.id}`} className="button">Редактировать</a>
+          ) : ""}
         </Card.Footer>
       </Card>
   );

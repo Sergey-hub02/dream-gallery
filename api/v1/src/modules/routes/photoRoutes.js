@@ -255,7 +255,7 @@ photoRouter.put("/:id", async (request, response) => {
     response.status(400);
 
     response.json({
-      error: "Не указан идентификатор фотографии!",
+      errors: ["Не указан идентификатор фотографии!"],
     });
 
     return;
@@ -263,8 +263,28 @@ photoRouter.put("/:id", async (request, response) => {
 
   console.log(`PUT /api/v1/photos/${photoId}`);
   console.log(request.body);
+  console.log(request.file);
 
   request.body.updatedAt = new Date();
+
+  if (request.files) {
+    const image = request.files.filename;
+    const fileName = `${v4()}${extname(image.name)}`;
+    const uploadPath = `${UPLOAD_DIR}\\${fileName}`;
+
+    request.body.filename = fileName;
+    request.body.path = uploadPath;
+
+    await image.mv(uploadPath, error => {
+      if (error) {
+        response.status(500);
+
+        response.json({
+          errors: [error.message]
+        });
+      }
+    });
+  }
 
   PhotoModel
       .findByIdAndUpdate(photoId, request.body)

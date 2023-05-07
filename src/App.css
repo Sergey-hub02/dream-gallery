@@ -16,6 +16,18 @@
   background-color: var(--bg-btn-primary-hover);
 }
 
+.button-danger {
+  padding: 7px 15px;
+  border-radius: 8px;
+
+  background-color: #9a005b;
+  transition: background-color .2s linear;
+}
+
+.button-danger:hover {
+  background-color: #f452a7;
+}
+
 .link {
   color: var(--fg-link) !important;
   text-decoration: underline !important;
