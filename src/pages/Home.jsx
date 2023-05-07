@@ -1,4 +1,7 @@
 import React from "react";
+import {MyHeader} from "../components/Header/MyHeader";
+import {MyFooter} from "../components/Footer/MyFooter";
+
 
 /**
  * Главная страница сайта
@@ -8,7 +11,9 @@ import React from "react";
 export const Home = () => {
   return (
       <div className="Home">
-        Главная страница
+        <MyHeader />
+
+        <MyFooter />
       </div>
   );
 }

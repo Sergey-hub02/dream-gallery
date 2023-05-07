@@ -169,7 +169,7 @@ export const Login = () => {
           </Form.Group>
 
           <Form.Group className="text-center">
-            <span>Нет учётной записи? <a class="link" href="/register/">Зарегистрируйтесь!</a></span>
+            <span>Нет учётной записи? <a className="link" href="/register/">Зарегистрируйтесь!</a></span>
           </Form.Group>
         </Form>
       </div>

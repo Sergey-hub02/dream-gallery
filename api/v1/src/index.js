@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
+import fileUpload from "express-fileupload";
 
 import userRouter from "./modules/routes/userRoutes.js";
 import categoryRouter from "./modules/routes/categoryRoutes.js";
@@ -18,6 +19,11 @@ const PORT = 4000;
 const main = async () => {
   await mongoose.connect("mongodb://127.0.0.1:27017/dream-gallery");
   const app = express();
+
+  app.use(fileUpload({
+    defCharset: "utf8",
+    defParamCharset: "utf8",
+  }));
 
   app.use(cors());
   app.use(bodyParser.json());

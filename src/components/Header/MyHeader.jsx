@@ -20,7 +20,10 @@ export const MyHeader = () => {
    * Получает ID пользователя до отрисовки компонента
    */
   useEffect(() => {
-    setUserId(cookies.get("User-ID"));
+    const cookie = cookies.get("User-ID");
+    if (cookie) {
+      setUserId(cookies.get("User-ID"));
+    }
   }, [cookies]);
 
   return (

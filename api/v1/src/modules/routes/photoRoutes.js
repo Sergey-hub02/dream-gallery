@@ -1,5 +1,7 @@
 import {Router} from "express";
 import {PhotoModel} from "../models.js";
+import {v4} from "uuid";
+import {extname} from "path";
 import mongoose from "mongoose";
 
 
@@ -19,7 +21,6 @@ photoRouter.post("/", async (request, response) => {
     description,
     creatorId,
     categoryId,
-    filename
   } = request.body;
 
   /*========= ВАЛИДАЦИЯ ДАННЫХ ==========*/
@@ -41,8 +42,17 @@ photoRouter.post("/", async (request, response) => {
     errors.push("Не задана категория фотографии!");
   }
 
-  if (!filename || filename.length === 0) {
-    errors.push("Не выбран файл для фотографии!");
+  // валидация файла
+  let image;
+  if (!request.files || Object.keys(request.files).length === 0) {
+    errors.push("Не выбран файл для загрузки!");
+  }
+  else {
+    image = request.files.filename;
+
+    if (!image.mimetype.includes("image")) {
+      errors.push("Пожалуйста, выберите изображение!");
+    }
   }
 
   if (errors.length !== 0) {
@@ -56,13 +66,26 @@ photoRouter.post("/", async (request, response) => {
   }
 
   /*========== ДОБАВЛЕНИЕ ФОТОГРАФИИ В БАЗУ ДАННЫХ ==========*/
+  const fileName = `${v4()}${extname(image.name)}`;
+  const uploadPath = `${UPLOAD_DIR}\\${fileName}`;
+
+  await image.mv(uploadPath, error => {
+    if (error) {
+      response.status(500);
+
+      response.json({
+        errors: [error.message]
+      });
+    }
+  });
+
   const photo = new PhotoModel({
     title: title,
     description: description,
     creatorId: mongoose.Types.ObjectId.createFromHexString(creatorId),
     categoryId: mongoose.Types.ObjectId.createFromHexString(categoryId),
-    filename: filename,
-    path: `${UPLOAD_DIR}\\${filename}`,
+    filename: fileName,
+    path: uploadPath,
     published: false,
     createdAt: new Date(),
     updatedAt: new Date(),
