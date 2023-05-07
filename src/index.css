@@ -54,6 +54,11 @@ a {
   text-decoration: none !important;
 }
 
+main {
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

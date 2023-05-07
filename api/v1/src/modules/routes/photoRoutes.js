@@ -5,7 +5,7 @@ import {extname} from "path";
 import mongoose from "mongoose";
 
 
-const UPLOAD_DIR = "C:\\Users\\Park Sergey\\Documents\\mirea\\Projects\\dream-gallery\\upload";
+const UPLOAD_DIR = "C:\\Users\\Park Sergey\\Documents\\mirea\\Projects\\dream-gallery\\public\\upload";
 const photoRouter = Router();
 
 /**

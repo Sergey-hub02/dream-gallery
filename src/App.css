@@ -25,3 +25,7 @@
 .link:hover {
   color: var(--fg-link-hover) !important;
 }
+
+.section {
+  padding: 1rem 0;
+}

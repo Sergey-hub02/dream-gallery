@@ -35,6 +35,7 @@ export const PhotoUpload = () => {
     const userId = cookies.get("User-ID");
 
     if (!userId) {
+      window.location = "/login/";
       return;
     }
 
