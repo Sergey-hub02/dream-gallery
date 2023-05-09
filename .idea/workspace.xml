@@ -6,13 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="37df0c2b-e808-46d9-b646-def632701436" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/routes/photoRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/routes/photoRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PhotoCard/PhotoCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PhotoCard/PhotoCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PhotoUpload/PhotoUpload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PhotoUpload/PhotoUpload.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/UserProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/UserProfile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/UserProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/UserProfile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/MyHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/MyHeader.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/MyHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/MyHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeadlinesPicker/HeadlinesPicker.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PhotoDetails/PhotoDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PhotoDetails/PhotoDetails.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -76,7 +75,7 @@
       <recent name="C:\Users\Park Sergey\Documents\mirea\Projects\dream-gallery\src\pages\Register" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start back">
+  <component name="RunManager" selected="npm.start front">
     <configuration name="rest-api_5 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -147,7 +146,9 @@
       <workItem from="1682776322295" duration="3750000" />
       <workItem from="1682835971166" duration="17823000" />
       <workItem from="1683358892374" duration="43078000" />
-      <workItem from="1683440973461" duration="30523000" />
+      <workItem from="1683440973461" duration="30798000" />
+      <workItem from="1683527958581" duration="192000" />
+      <workItem from="1683528159800" duration="10317000" />
     </task>
     <servers />
   </component>

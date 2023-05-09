@@ -5,6 +5,8 @@ import {MyFooter} from "../../components/Footer/MyFooter";
 import axios from "axios";
 import {Container, Image} from "react-bootstrap";
 import {getTime} from "../../utils/functions";
+import Cookies from "universal-cookie/lib";
+import {CommentSection} from "../../components/CommentSection/CommentSection";
 
 
 /**
@@ -14,12 +16,15 @@ import {getTime} from "../../utils/functions";
  */
 export const PhotoDetails = () => {
   const params = useParams();
+
   const [photo, setPhoto] = useState(null);
+  const [userId, setUserId] = useState("");
 
   /**
    * Получение данных фотографии
    */
   useEffect(() => {
+    // определение данных фотографии
     const photoId = params.photoId;
 
     if (!photoId || photoId.length === 0) {
@@ -30,6 +35,16 @@ export const PhotoDetails = () => {
         .then(response => {
           setPhoto(response.data);
         });
+
+    // определение данных пользователя
+    const cookies = new Cookies();
+    const id = cookies.get("User-ID");
+
+    if (!id || id.length === 0) {
+      return;
+    }
+
+    setUserId(id);
   }, [params]);
 
   return (
@@ -69,6 +84,11 @@ export const PhotoDetails = () => {
                 <h3>Описание</h3>
                 {photo ? photo.description : ""}
               </div>
+
+              <CommentSection
+                  userId={userId}
+                  photoId={photo ? photo._id : ""}
+              />
             </div>
           </Container>
         </main>

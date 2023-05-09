@@ -5,6 +5,7 @@ import Cookies from "universal-cookie/lib";
 import logo from "./images/dream-gallery_64.png";
 import profile from "./images/profile.png";
 import "./MyHeader.css";
+import axios from "axios";
 
 
 /**
@@ -15,6 +16,7 @@ import "./MyHeader.css";
 export const MyHeader = () => {
   const [userId, setUserId] = useState("");
   const [cookies,] = useState(new Cookies());
+  const [user, setUser] = useState(null);
 
   /**
    * Получает ID пользователя до отрисовки компонента
@@ -23,6 +25,11 @@ export const MyHeader = () => {
     const cookie = cookies.get("User-ID");
     if (cookie) {
       setUserId(cookies.get("User-ID"));
+
+      axios.get(`http://localhost:4000/api/v1/users/${cookie}`)
+          .then(response => {
+            setUser(response.data);
+          });
     }
   }, [cookies]);
 
@@ -40,7 +47,14 @@ export const MyHeader = () => {
             </div>
           </Navbar.Brand>
 
-          <Navbar.Toggle aria-controls="dream-gallery-navbar">
+          <Navbar.Toggle className="d-flex align-items-center" aria-controls="dream-gallery-navbar">
+            {user
+                ? (
+                    <div className="pe-2 user-info">{user.username}</div>
+                )
+                : ""
+            }
+
             <Image
                 id="profile-dropdown"
                 src={profile}
