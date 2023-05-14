@@ -11,6 +11,7 @@ import {PhotoEdit} from "./pages/PhotoEdit/PhotoEdit";
 import {AlbumAdd} from "./pages/AlbumAdd/AlbumAdd";
 
 import "./App.css";
+import {AlbumEdit} from "./pages/AlbumEdit/AlbumEdit";
 
 
 /**
@@ -32,6 +33,7 @@ function App() {
         <Route path="/photos/edit/:photoId" element={<PhotoEdit />} />
 
         <Route path="/albums/add" element={<AlbumAdd />} />
+        <Route path="/albums/edit/:albumId" element={<AlbumEdit />} />
       </Routes>
     </div>
   );

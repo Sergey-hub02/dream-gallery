@@ -95,6 +95,14 @@ albumRouter.get("/", (request, response) => {
             as: "creator",
           }
         },
+        {
+          $lookup: {
+            from: "photos",
+            localField: "photos",
+            foreignField: "_id",
+            as: "p",
+          }
+        },
       ])
       .catch(error => {
         response.status(500);
@@ -178,6 +186,16 @@ albumRouter.put("/:id", (request, response) => {
 
   console.log(`PUT /api/v1/categories/${albumId}`);
   console.log(request.body);
+
+  if (!Array.isArray(request.body["photos[]"])) {
+    request.body["photos[]"] = [request.body["photos[]"]];
+  }
+
+  request.body = {
+    title: request.body.title,
+    creatorId: request.body.creatorId,
+    photos: request.body["photos[]"],
+  };
 
   request.body.updatedAt = new Date();
 

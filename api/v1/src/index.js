@@ -18,7 +18,7 @@ const PORT = 4000;
  * @returns {Promise<void>}
  */
 const main = async () => {
-  await mongoose.connect("mongodb://127.0.0.1:27017/dream-gallery");
+  await mongoose.connect("mongodb+srv://ezh1k:Sergey02@dream-gallery.vpusztu.mongodb.net/?retryWrites=true&w=majority");
   const app = express();
 
   app.use(fileUpload({

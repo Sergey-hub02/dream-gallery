@@ -65,7 +65,12 @@ export const MyHeader = () => {
           <Navbar.Collapse id="dream-gallery-navbar" className="justify-content-end">
             <Nav className="align-items-center">
               {userId.length !== 0
-                  ? (<Nav.Link href="/profile/">Личный кабинет</Nav.Link>)
+                  ? (
+                      <>
+                        <Nav.Link href="/profile/">Личный кабинет</Nav.Link>
+                        <Nav.Link href="/albums/add/">Добавить альбом</Nav.Link>
+                      </>
+                  )
                   : ""}
 
               {userId.length !== 0

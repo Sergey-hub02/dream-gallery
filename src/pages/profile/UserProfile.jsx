@@ -10,6 +10,7 @@ import "./UserProfile.css";
 import profilePicture from "./user_picture.png";
 import {MyFooter} from "../../components/Footer/MyFooter";
 import {PhotoCard} from "../../components/PhotoCard/PhotoCard";
+import {Album} from "../../components/Album/Album";
 
 
 /**
@@ -32,6 +33,7 @@ export const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [photos, setPhotos] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   /**
    * Валидация и отправка данных для обновления
@@ -106,6 +108,11 @@ export const UserProfile = () => {
     axios.get(`http://localhost:4000/api/v1/photos/?creatorId=${userId}`)
         .then(response => {
           setPhotos(response.data);
+        });
+
+    axios.get(`http://localhost:4000/api/v1/albums/?creatorId=${userId}`)
+        .then(response => {
+          setAlbums(response.data);
         });
   }, []);
 
@@ -298,6 +305,24 @@ export const UserProfile = () => {
                 </Row>
               </div>
             </section>
+
+            {
+              !albums && albums.length === 0
+                  ? <div></div>
+                  : (
+                      albums.map((album, index) => {
+                        return (
+                            <Album
+                                key={index}
+                                id={album._id}
+                                title={album.title}
+                                photos={album.p}
+                                author={user}
+                            />
+                        );
+                      })
+                  )
+            }
           </Container>
         </main>
 

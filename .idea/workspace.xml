@@ -7,8 +7,10 @@
     <list default="true" id="37df0c2b-e808-46d9-b646-def632701436" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/v1/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/routes/albumRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/routes/albumRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/MyHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/MyHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/profile/UserProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/UserProfile.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,25 +46,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Park Sergey/Documents/mirea/Projects/dream-gallery/src/components/Footer/images&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Park Sergey/Documents/mirea/Projects/dream-gallery/src/components",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Park Sergey\Documents\mirea\Projects\dream-gallery\src\components" />
       <recent name="C:\Users\Park Sergey\Documents\mirea\Projects\dream-gallery\src\components\Footer\images" />
       <recent name="C:\Users\Park Sergey\Documents\mirea\Projects\dream-gallery\src\components\Header" />
     </key>
@@ -72,7 +75,7 @@
       <recent name="C:\Users\Park Sergey\Documents\mirea\Projects\dream-gallery\src\pages\Register" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start back">
+  <component name="RunManager" selected="npm.start front">
     <configuration name="rest-api_5 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -148,7 +151,7 @@
       <workItem from="1683528159800" duration="10317000" />
       <workItem from="1683613108197" duration="4344000" />
       <workItem from="1683959120002" duration="7780000" />
-      <workItem from="1684041629693" duration="6522000" />
+      <workItem from="1684041629693" duration="19668000" />
     </task>
     <servers />
   </component>

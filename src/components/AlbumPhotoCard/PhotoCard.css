@@ -1,0 +1,11 @@
+.photo-card {
+  background-color: var(--bg-tertiary);
+}
+
+.photo-card-header {
+  border-bottom: 1px solid var(--fg-primary);
+}
+
+.photo-card-link:hover {
+  text-decoration: underline !important;
+}
