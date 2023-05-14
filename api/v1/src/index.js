@@ -8,6 +8,7 @@ import userRouter from "./modules/routes/userRoutes.js";
 import categoryRouter from "./modules/routes/categoryRoutes.js";
 import photoRouter from "./modules/routes/photoRoutes.js";
 import commentRouter from "./modules/routes/commentRoutes.js";
+import albumRouter from "./modules/routes/albumRoutes.js";
 
 const PORT = 4000;
 
@@ -33,6 +34,7 @@ const main = async () => {
   app.use("/api/v1/categories/", categoryRouter);
   app.use("/api/v1/photos/", photoRouter);
   app.use("/api/v1/comments/", commentRouter);
+  app.use("/api/v1/albums/", albumRouter);
 
   app.listen(PORT, () => {
     console.log(`Сервер запущен на http://localhost:${PORT}/`);

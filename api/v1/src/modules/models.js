@@ -59,6 +59,20 @@ const Photo = new Schema({
 });
 
 /**
+ * Альбом (коллекция фотографий)
+ * @field {String} title            название альбома
+ * @field {Array<ObjectId>}         идентификаторы фотографий, принадлежащих альбому
+ * @field {Date} createdAt          дата и время создания альбома
+ */
+const Album = new Schema({
+  title: String,
+  photos: [mongoose.Types.ObjectId],
+  creatorId: mongoose.Types.ObjectId,
+  createdAt: Date,
+  updatedAt: Date,
+});
+
+/**
  * Категории фотографий
  * @field {String} title              название категории
  */
@@ -83,5 +97,6 @@ const Comment = new Schema({
 export const RoleModel = model("Role", Role);
 export const UserModel = model("User", User);
 export const PhotoModel = model("Photo", Photo);
+export const AlbumModel = model("Album", Album);
 export const CategoryModel = model("Category", Category);
 export const CommentModel = model("Comment", Comment);

@@ -6,10 +6,11 @@ import {Register} from "./pages/Register/Register";
 import {Login} from "./pages/Register/Login";
 import {UserProfile} from "./pages/profile/UserProfile";
 import {PhotoUpload} from "./pages/PhotoUpload/PhotoUpload";
-
-import "./App.css";
 import {PhotoDetails} from "./pages/PhotoDetails/PhotoDetails";
 import {PhotoEdit} from "./pages/PhotoEdit/PhotoEdit";
+import {AlbumAdd} from "./pages/AlbumAdd/AlbumAdd";
+
+import "./App.css";
 
 
 /**
@@ -25,9 +26,12 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<UserProfile />} />
+
         <Route path="/photos/upload" element={<PhotoUpload />} />
         <Route path="/photos/:photoId" element={<PhotoDetails />} />
         <Route path="/photos/edit/:photoId" element={<PhotoEdit />} />
+
+        <Route path="/albums/add" element={<AlbumAdd />} />
       </Routes>
     </div>
   );
