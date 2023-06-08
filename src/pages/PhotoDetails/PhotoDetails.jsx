@@ -57,7 +57,7 @@ export const PhotoDetails = () => {
               <header className="publication-header mb-4">
                 <h3 className="publication-title">{photo ? photo.title : ""}</h3>
                 <Image
-                    src={photo ? `/upload/${photo.filename}` : ""}
+                    src={photo ? `data:${photo.fileType};base64,${photo.file}` : ""}
                     className="publication-image mw-100"
                 />
 

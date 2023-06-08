@@ -6,10 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="37df0c2b-e808-46d9-b646-def632701436" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/v1/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/routes/albumRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/routes/albumRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/MyHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/MyHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/src/modules/routes/photoRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/src/modules/routes/photoRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Album/Album.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Album/Album.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/draft.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AlbumAdd/AlbumAdd.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AlbumAdd/AlbumAdd.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AlbumEdit/AlbumEdit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AlbumEdit/AlbumEdit.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PhotoDetails/PhotoDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PhotoDetails/PhotoDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PhotoEdit/PhotoEdit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PhotoEdit/PhotoEdit.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PhotoUpload/PhotoUpload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PhotoUpload/PhotoUpload.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/profile/UserProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/UserProfile.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -46,23 +55,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Park Sergey/Documents/mirea/Projects/dream-gallery/src/components",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Park Sergey/Documents/mirea/Projects/dream-gallery/src/components&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/Park Sergey/Documents/mirea/Projects/dream-gallery/node_modules/react-scripts&quot;,
+    &quot;nodejs.mocha.mocha_node_package_dir&quot;: &quot;C:/Users/Park Sergey/Documents/mirea/Projects/dream-gallery/api/v1/node_modules/mocha&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Park Sergey\Documents\mirea\Projects\dream-gallery\src\components" />
@@ -75,22 +86,7 @@
       <recent name="C:\Users\Park Sergey\Documents\mirea\Projects\dream-gallery\src\pages\Register" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start front">
-    <configuration name="rest-api_5 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="rest-api_5 | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="rest-api_5 | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" index="3" requestIdentifier="#3" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="rest-api_5 | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" index="4" requestIdentifier="#4" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="rest-api_5 | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" index="5" requestIdentifier="#5" runType="Run single request">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.start back">
     <configuration name="start back" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -111,22 +107,98 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="/api/v1/albums/" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/api/v1/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$/api/v1</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/api/v1/src/tests.js</test-file>
+      <test-names>
+        <name value="/api/v1/albums/" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="/api/v1/comments/" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/api/v1/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$/api/v1</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/api/v1/src/tests.js</test-file>
+      <test-names>
+        <name value="/api/v1/comments/" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="/api/v1/photos/" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/api/v1/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$/api/v1</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/api/v1/src/tests.js</test-file>
+      <test-names>
+        <name value="/api/v1/photos/" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="/api/v1/users/.DELETE /api/v1/users/" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/api/v1/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$/api/v1</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/api/v1/src/tests.js</test-file>
+      <test-names>
+        <name value="/api/v1/users/" />
+        <name value="DELETE /api/v1/users/" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="mocha-javascript-test-runner" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/api/v1/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$/api/v1</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/api/v1/src/tests.js</test-file>
+      <test-names>
+        <name value="/api/v1/users/" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="HTTP Request.rest-api_5 | #1" />
-      <item itemvalue="HTTP Request.rest-api_5 | #2" />
-      <item itemvalue="HTTP Request.rest-api_5 | #3" />
-      <item itemvalue="HTTP Request.rest-api_5 | #4" />
-      <item itemvalue="HTTP Request.rest-api_5 | #5" />
+      <item itemvalue="Mocha./api/v1/albums/" />
+      <item itemvalue="Mocha./api/v1/comments/" />
+      <item itemvalue="Mocha./api/v1/photos/" />
+      <item itemvalue="Mocha./api/v1/users/.DELETE /api/v1/users/" />
+      <item itemvalue="Mocha.test" />
       <item itemvalue="npm.start back" />
       <item itemvalue="npm.start front" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.rest-api_5 | #5" />
-        <item itemvalue="HTTP Request.rest-api_5 | #4" />
-        <item itemvalue="HTTP Request.rest-api_5 | #3" />
-        <item itemvalue="HTTP Request.rest-api_5 | #2" />
-        <item itemvalue="HTTP Request.rest-api_5 | #1" />
+        <item itemvalue="Mocha./api/v1/albums/" />
+        <item itemvalue="Mocha./api/v1/comments/" />
+        <item itemvalue="Mocha./api/v1/photos/" />
+        <item itemvalue="Mocha.test" />
+        <item itemvalue="Mocha./api/v1/users/.DELETE /api/v1/users/" />
       </list>
     </recent_temporary>
   </component>
@@ -151,7 +223,14 @@
       <workItem from="1683528159800" duration="10317000" />
       <workItem from="1683613108197" duration="4344000" />
       <workItem from="1683959120002" duration="7780000" />
-      <workItem from="1684041629693" duration="19668000" />
+      <workItem from="1684041629693" duration="23241000" />
+      <workItem from="1684522750428" duration="244000" />
+      <workItem from="1684599184456" duration="5241000" />
+      <workItem from="1684830876043" duration="6267000" />
+      <workItem from="1684915123199" duration="3632000" />
+      <workItem from="1685033483779" duration="2769000" />
+      <workItem from="1685037633584" duration="644000" />
+      <workItem from="1686195404688" duration="6513000" />
     </task>
     <servers />
   </component>

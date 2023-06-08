@@ -1,5 +1,6 @@
 import mongoose, {model} from "mongoose";
 import {Schema} from "mongoose";
+import schema from "gridfile";
 
 
 /**
@@ -53,9 +54,15 @@ const Photo = new Schema({
   categoryId: mongoose.Types.ObjectId,
   filename: String,
   path: String,
+  file: Buffer,
+  fileType: String,
   published: Boolean,
   createdAt: Date,
   updatedAt: Date,
+});
+
+Photo.virtual("imageSrc").get(function () {
+  return `data:${this.fileType};charset=utf-8;base64,${this.file.toString("base64")}`
 });
 
 /**
@@ -100,3 +107,4 @@ export const PhotoModel = model("Photo", Photo);
 export const AlbumModel = model("Album", Album);
 export const CategoryModel = model("Category", Category);
 export const CommentModel = model("Comment", Comment);
+// export const GridFile = model("GridFile", schema);

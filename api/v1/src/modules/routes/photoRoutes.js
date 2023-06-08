@@ -8,6 +8,17 @@ import mongoose from "mongoose";
 const UPLOAD_DIR = "C:\\Users\\Park Sergey\\Documents\\mirea\\Projects\\dream-gallery\\public\\upload";
 const photoRouter = Router();
 
+const uploadImage = (model, imgEncoded) => {
+  if (!imgEncoded) {
+    return;
+  }
+
+  const img = JSON.parse(imgEncoded);
+  if (img) {
+    model.file = new Buffer.from(img.data, "base64");
+  }
+}
+
 /**
  * POST /api/v1/photos/
  * Добавление фотографии в базу данных
@@ -69,15 +80,15 @@ photoRouter.post("/", async (request, response) => {
   const fileName = `${v4()}${extname(image.name)}`;
   const uploadPath = `${UPLOAD_DIR}\\${fileName}`;
 
-  await image.mv(uploadPath, error => {
-    if (error) {
-      response.status(500);
-
-      response.json({
-        errors: [error.message]
-      });
-    }
-  });
+  // await image.mv(uploadPath, error => {
+  //   if (error) {
+  //     response.status(500);
+  //
+  //     response.json({
+  //       errors: [error.message]
+  //     });
+  //   }
+  // });
 
   const photo = new PhotoModel({
     title: title,
@@ -86,6 +97,8 @@ photoRouter.post("/", async (request, response) => {
     categoryId: mongoose.Types.ObjectId.createFromHexString(categoryId),
     filename: fileName,
     path: uploadPath,
+    file: new Buffer.from(image.data, "base64"),
+    fileType: image.mimetype,
     published: false,
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -152,6 +165,8 @@ photoRouter.get("/", (request, response) => {
             "description": true,
             "filename": true,
             "path": true,
+            "file": true,
+            "fileType": true,
             "published": true,
             "createdAt": true,
             "updatedAt": true,
@@ -211,6 +226,8 @@ photoRouter.get("/:id", (request, response) => {
             "description": true,
             "filename": true,
             "path": true,
+            "file": true,
+            "fileType": true,
             "published": true,
             "createdAt": true,
             "updatedAt": true,
@@ -274,16 +291,18 @@ photoRouter.put("/:id", async (request, response) => {
 
     request.body.filename = fileName;
     request.body.path = uploadPath;
+    request.body.file = new Buffer.from(image.data, "base64");
+    request.body.fileType = image.mimetype;
 
-    await image.mv(uploadPath, error => {
-      if (error) {
-        response.status(500);
-
-        response.json({
-          errors: [error.message]
-        });
-      }
-    });
+    // await image.mv(uploadPath, error => {
+    //   if (error) {
+    //     response.status(500);
+    //
+    //     response.json({
+    //       errors: [error.message]
+    //     });
+    //   }
+    // });
   }
 
   PhotoModel

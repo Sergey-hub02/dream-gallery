@@ -3,10 +3,10 @@ import {MyHeader} from "../../components/Header/MyHeader";
 import {MyFooter} from "../../components/Footer/MyFooter";
 import {Container, Form, Image, Spinner} from "react-bootstrap";
 import {useParams} from "react-router-dom";
-
-import "./AlbumEdit.css";
 import Cookies from "universal-cookie/lib";
 import axios from "axios";
+
+import "./AlbumEdit.css";
 
 
 /**
@@ -163,7 +163,7 @@ export const AlbumEdit = () => {
                                     <label className="form-label" htmlFor={photo._id}>
                                       <Image
                                           className="photo-image"
-                                          src={`/upload/${photo.filename}`}
+                                          src={`data:${photo.fileType};base64,${photo.file}`}
                                       />
                                     </label>
 

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {MyHeader} from "../components/Header/MyHeader";
 import {MyFooter} from "../components/Footer/MyFooter";
-import {Card, Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import axios from "axios";
 
 import "./Home.css";
@@ -64,7 +64,7 @@ export const Home = () => {
                                   return (
                                       <Col lg={4} key={index}>
                                         <PhotoCard
-                                            src={`/upload/${photo.filename}`}
+                                            src={`data:${photo.fileType};base64,${photo.file}`}
                                             id={photo._id}
                                             title={photo.title}
                                             category={photo.category[0].title}

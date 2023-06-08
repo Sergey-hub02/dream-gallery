@@ -53,7 +53,7 @@ export const PhotoEdit = () => {
         .then(response => {
           setTitle(response.data.title);
           setDescription(response.data.description);
-          setImage(`/upload/${response.data.filename}`);
+          setImage(`data:${response.data.fileType};base64,${response.data.file}`);
           setCategoryId(response.data.category[0]._id);
         });
 

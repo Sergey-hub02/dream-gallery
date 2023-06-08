@@ -3,14 +3,13 @@ import {MyHeader} from "../../components/Header/MyHeader";
 import {Card, Col, Container, Form, Row, Image, Spinner} from "react-bootstrap";
 import axios from "axios";
 import Cookies from "universal-cookie/lib";
-import {redirect} from "react-router-dom";
 import {getTime} from "../../utils/functions";
-
-import "./UserProfile.css";
-import profilePicture from "./user_picture.png";
 import {MyFooter} from "../../components/Footer/MyFooter";
 import {PhotoCard} from "../../components/PhotoCard/PhotoCard";
 import {Album} from "../../components/Album/Album";
+
+import "./UserProfile.css";
+import profilePicture from "./user_picture.png";
 
 
 /**
@@ -286,7 +285,7 @@ export const UserProfile = () => {
                               return (
                                   <Col key={index} lg={4}>
                                     <PhotoCard
-                                        src={`/upload/${photo.filename}`}
+                                        src={`data:${photo.fileType};base64,${photo.file}`}
                                         id={photo._id}
                                         title={photo.title}
                                         category={photo.category[0].title}

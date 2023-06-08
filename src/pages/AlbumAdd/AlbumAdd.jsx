@@ -151,7 +151,7 @@ export const AlbumAdd = () => {
                                     <label className="form-label" htmlFor={photo._id}>
                                       <Image
                                           className="photo-image"
-                                          src={`/upload/${photo.filename}`}
+                                          src={`data:${photo.fileType};base64,${photo.file}`}
                                       />
                                     </label>
 

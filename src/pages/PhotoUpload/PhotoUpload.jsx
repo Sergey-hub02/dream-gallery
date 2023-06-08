@@ -2,11 +2,11 @@ import React, {useEffect, useState} from "react";
 import {MyHeader} from "../../components/Header/MyHeader";
 import {MyFooter} from "../../components/Footer/MyFooter";
 import {Container, Form, Spinner} from "react-bootstrap";
+import axios from "axios";
+import Cookies from "universal-cookie/lib";
 
 import "./PhotoUpload.css";
 import "draft-js/dist/Draft.css";
-import axios from "axios";
-import Cookies from "universal-cookie/lib";
 
 
 /**

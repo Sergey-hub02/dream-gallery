@@ -3,12 +3,16 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
 import fileUpload from "express-fileupload";
+// import multer from "multer";
+// import {GridFsStorage} from "multer-gridfs-storage";
+// import * as path from "path";
 
 import userRouter from "./modules/routes/userRoutes.js";
 import categoryRouter from "./modules/routes/categoryRoutes.js";
 import photoRouter from "./modules/routes/photoRoutes.js";
 import commentRouter from "./modules/routes/commentRoutes.js";
 import albumRouter from "./modules/routes/albumRoutes.js";
+// import {GridFile} from "./modules/models.js";
 
 const PORT = 4000;
 
@@ -18,8 +22,10 @@ const PORT = 4000;
  * @returns {Promise<void>}
  */
 const main = async () => {
-  await mongoose.connect("mongodb+srv://ezh1k:Sergey02@dream-gallery.vpusztu.mongodb.net/?retryWrites=true&w=majority");
+  await mongoose.connect("mongodb://127.0.0.1:27017/dream-gallery");
+
   const app = express();
+  // const upload = multer({dest: path.join(__dirname, ".")});
 
   app.use(fileUpload({
     defCharset: "utf8",

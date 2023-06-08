@@ -1,6 +1,5 @@
 import React from "react";
 import {Col, Row} from "react-bootstrap";
-import {PhotoCard} from "../PhotoCard/PhotoCard";
 import {getTime} from "../../utils/functions";
 import {AlbumPhotoCard} from "../AlbumPhotoCard/AlbumPhotoCard";
 
@@ -22,7 +21,7 @@ export const Album = props => {
               return (
                   <Col key={index} lg={4}>
                     <AlbumPhotoCard
-                        src={`/upload/${photo.filename}`}
+                        src={`data:${photo.fileType};base64,${photo.file}`}
                         id={photo._id}
                         title={photo.title}
                         creator={props.author}
